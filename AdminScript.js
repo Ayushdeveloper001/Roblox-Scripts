@@ -1,4 +1,4 @@
---[[
+s--[[
 	ayush admin - 16/11/2022
 ]]
 
@@ -5403,10 +5403,10 @@ end)
 
 AddCommand("advertise", {}, "advertises the script", {}, function()
     local ChatRemote = Services.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
-    ChatRemote.FireServer(ChatRemote, "I am using fates admin, join the server 5epGRYR", "All");
+    ChatRemote.FireServer(ChatRemote, "I am using Ayush admin, join the server", "All");
 end)
 
-AddCommand("joinserver", {"discord"}, "joins the fates admin discord server", {}, function()
+AddCommand("joinserver", {"discord"}, "joins the Ayush admin discord server", {}, function()
     local Request = syn and syn.request or request
     local HttpService = Services.HttpService
     if (Request({
@@ -5419,12 +5419,12 @@ AddCommand("joinserver", {"discord"}, "joins the fates admin discord server", {}
         Body = JSONEncode(HttpService, {
             cmd = "INVITE_BROWSER",
             args = {
-                code = "5epGRYR"
+                code = "0"
             },
             nonce = GenerateGUID(HttpService, false)
         }),
     }).StatusCode == 200) then
-        return "joined fates admin discord server"
+        return "joined Ayush admin discord server"
     else
         return "discord isn't open"
     end
@@ -5553,7 +5553,7 @@ AddCommand("clearexceptions", {}, "removes users from exceptions list", {}, func
     return "exceptions list cleared"
 end)
 local CommandsLoaded = false
-AddCommand("commands", {"cmds"}, "shows you all the commands listed in fates admin", {}, function()
+AddCommand("commands", {"cmds"}, "shows you all the commands listed in Ayush admin", {}, function()
     if (not CommandsLoaded) then
         local CommandsList = Commands.Frame.List
         Utils.SmoothScroll(CommandsList, .14);
@@ -5837,7 +5837,7 @@ end)
 
 AddCommand("freecam", {"fc"}, "enables/disables freecam", {}, function(Caller, Args, CEnv)
     if (not CEnv.Activated) then
-        -- roblox freecam modifed by fate
+        -- roblox freecam modifed by aysuh
         local Spring = {}
         Spring.__index = Spring
         function Spring:Update(dt)
@@ -6589,7 +6589,7 @@ end)
 
 --AddCommand("dex", {"darkdex"}, "A quick way to execute dark dex from the synapse script hub.", {}, loadstring(game:HttpGet("https://cdn.synapse.to/synapsedistro/hub/DarkDex.lua")));
 
-AddCommand("console", {"errors", "warns", "outputs"}, "shows the outputs fates admin has made", {}, function()
+AddCommand("console", {"errors", "warns", "outputs"}, "shows the outputs ayush admin has made", {}, function()
     local MessageClone = Clone(Console.Frame.List);
     
     Utils.ClearAllObjects(Console.Frame.List)
@@ -6984,7 +6984,7 @@ end), Connections.UI, true);
 
 AddConnection(CConnect(ChatLogs.Save.MouseButton1Click, function()
     local GameName = Services.MarketplaceService.GetProductInfo(Services.MarketplaceService, game.PlaceId).Name
-    local String =  format("Fates Admin Chatlogs for %s (%s)\n\n", GameName, os.date());
+    local String =  format("Ayush Admin Chatlogs for %s (%s)\n\n", GameName, os.date());
     local TimeSaved = gsub(tostring(os.date("%x")), "/", "-") .. " " .. gsub(tostring(os.date("%X")), ":", "-");
     local Name = format("fates-admin/chatlogs/%s (%s).txt", GameName, TimeSaved);
     local Children = GetChildren(ChatLogs.Frame.List);
@@ -7000,7 +7000,7 @@ end), Connections.UI, true);
 
 AddConnection(CConnect(HttpLogs.Save.MouseButton1Click, function()
     local Children = GetChildren(HttpLogs.Frame.List);
-    local Logs =  format("Fates Admin HttpLogs for %s\n\n", os.date());
+    local Logs =  format("Ayush Admin HttpLogs for %s\n\n", os.date());
     for i = 1, #Children do
         local v = Children[i]
         if (not IsA(v, "UIListLayout")) then
@@ -7018,7 +7018,7 @@ AddConnection(CConnect(Console.Save.MouseButton1Click, function()
     local GameName = Services.MarketplaceService.GetProductInfo(Services.MarketplaceService, game.PlaceId).Name
     local TimeSaved = gsub(tostring(os.date("%x")), "/", "-") .. " " .. gsub(tostring(os.date("%X")), ":", "-");
     local Children = GetChildren(Console.Frame.List);
-    local String =  format("Fates Admin logs %s\nGame: %s - %d\n\n", TimeSaved, GameName, game.PlaceId);
+    local String =  format("Ayush Admin logs %s\nGame: %s - %d\n\n", TimeSaved, GameName, game.PlaceId);
     local Names = { ["P"] = "OUTPUT", ["W"] = "WARNING", ["E"] = "ERROR" }
     for i = 1, #Children do
         local v = Children[i]
